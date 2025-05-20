@@ -138,7 +138,11 @@ it('Marcando checkbox', () => {
 
 it('Subindo arquivos', () => {
   cy.get('input[type="file"]')
-  .selectFile('C:/Users/ramon/Downloads/Ramon-Gorge-EN.pdf')
+  .selectFile('cypress/fixtures/foto1.png')
+  cy.get('#file-upload')
+  .should(input => {
+    expect(input[0].files[0].name).to.equal('foto1.png')
+  })
 })
 
 it('Seleciona arquivo da pasta fixtures', () => {
